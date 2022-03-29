@@ -1,3 +1,13 @@
-export function transform(/* Parameters go here */) {
-  throw new Error('Remove this statement and implement this function')
+export function transform(letters: { [key: string]: string[] }) {
+  let result: { [k: string]: number } = {};
+
+  Object.entries(letters).forEach(([key, value]) => {
+    console.log("Key " + key);
+    for (let item of value) {
+      result[item.toLocaleLowerCase()] = +key;
+    }
+  });
+
+  console.log("Result: " + JSON.stringify(result));
+  return result;
 }
